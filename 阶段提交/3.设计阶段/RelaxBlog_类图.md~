@@ -32156,13 +32156,11 @@
 			quid       	"58FDB8BC01BC"
 			supplier   	"Use Case View::sysconfig"
 			quidu      	"58F4E2920108"
-			client_cardinality 	(value cardinality "1")
 			is_navigable 	TRUE)
 		    (object Role "$UNNAMED$174"
 			quid       	"58FDB8BC01BE"
 			supplier   	"Use Case View::systemConfigInfoController"
-			quidu      	"58DE587103D5"
-			client_cardinality 	(value cardinality "1")))))
+			quidu      	"58DE587103D5"))))
 	logical_presentations 	(list unit_reference_list
 	    (object UseCaseDiagram "Main"
 		quid       	"58DB56D5035C"
@@ -35305,15 +35303,6 @@
 			    (object RoleView "$UNNAMED$173" @1747
 				Parent_View 	@1746
 				location   	(-43, 358)
-				font       	(object Font
-				    size       	12
-				    face       	"Arial"
-				    bold       	FALSE
-				    italics    	FALSE
-				    underline  	FALSE
-				    strike     	FALSE
-				    color      	0
-				    default_color 	TRUE)
 				stereotype 	TRUE
 				line_color 	3342489
 				quidu      	"58FDB8BC01BC"
@@ -35322,40 +35311,10 @@
 				vertices   	(list Points
 				    (4317, 1678)
 				    (4298, 1838))
-				line_style 	0
-				label      	(object SegLabel @1748
-				    Parent_View 	@1747
-				    location   	(4354, 1827)
-				    font       	(object Font
-					size       	10
-					face       	"Arial"
-					bold       	FALSE
-					italics    	FALSE
-					underline  	FALSE
-					strike     	FALSE
-					color      	0
-					default_color 	TRUE)
-				    anchor     	2
-				    anchor_loc 	1
-				    nlines     	1
-				    max_width  	15
-				    justify    	0
-				    label      	"1"
-				    pctDist    	0.900000
-				    height     	54
-				    orientation 	0))
-			    (object RoleView "$UNNAMED$174" @1749
+				line_style 	0)
+			    (object RoleView "$UNNAMED$174" @1748
 				Parent_View 	@1746
 				location   	(-43, 358)
-				font       	(object Font
-				    size       	12
-				    face       	"Arial"
-				    bold       	FALSE
-				    italics    	FALSE
-				    underline  	FALSE
-				    strike     	FALSE
-				    color      	0
-				    default_color 	TRUE)
 				stereotype 	TRUE
 				line_color 	3342489
 				quidu      	"58FDB8BC01BE"
@@ -35364,28 +35323,7 @@
 				vertices   	(list Points
 				    (4317, 1678)
 				    (4336, 1518))
-				line_style 	0
-				label      	(object SegLabel @1750
-				    Parent_View 	@1749
-				    location   	(4388, 1541)
-				    font       	(object Font
-					size       	10
-					face       	"Arial"
-					bold       	FALSE
-					italics    	FALSE
-					underline  	FALSE
-					strike     	FALSE
-					color      	0
-					default_color 	TRUE)
-				    anchor     	2
-				    anchor_loc 	1
-				    nlines     	1
-				    max_width  	15
-				    justify    	0
-				    label      	"1"
-				    pctDist    	0.900000
-				    height     	54
-				    orientation 	1))))))))
+				line_style 	0)))))))
     root_category 	(object Class_Category "Logical View"
 	quid       	"58DB56CE0129"
 	exportControl 	"Public"
