@@ -48,7 +48,7 @@
         <!--logo end-->
         <div class="top-menu">
             <ul class="nav pull-right top-menu">
-                <li><a class="logout" href="login.html">Logout</a></li>
+                <li><button class="logout" type="button" onclick="logout()">Logout</button></li>
             </ul>
         </div>
     </header>
@@ -107,12 +107,11 @@
                 <li class="sub-menu">
                     <a href="javascript:;">
                         <i class="fa fa-cogs"></i>
-                        <span>Third</span>
+                        <span>manageLinks</span>
                     </a>
                     <ul class="sub">
-                        <li><a href="calendar.html">A</a></li>
-                        <li><a href="gallery.html">B</a></li>
-                        <li><a href="todo_list.html">C</a></li>
+                        <li><a href="addLink.html">addLink</a></li>
+                        <li><a href="manageLink.html">manageLink</a></li>
                     </ul>
                 </li>
                 <li class="sub-menu">
@@ -175,7 +174,7 @@
                 <div class="form-group">
                     <label for="article-title" class="col-sm-1 control-label">description</label>
                     <div class="col-sm-11">
-                        <input type="text" class="form-control" id="article-title" placeholder="description" name="description">
+                        <input type="text" class="form-control" id="description" placeholder="description" name="description">
                     </div>
                 </div>
                 <div class="form-group">
@@ -194,7 +193,7 @@
                     </div>
                 </div>
                 <br>
-                <button type="button" onclick="addArticle()">保存</button>
+                <button type="button" onclick="addLink()">保存</button>
 
 
             </form>
@@ -208,93 +207,47 @@
                     });
                 });
 */
-                function addDraft() {
-                    ttitle=$('#article-title').val();
 
-                    tcontent=ue.getContent();
+
+                function addLink()
+                {
+
+                    var tdescription=$('#description').val();
+
+                    var tname=$('#name').val();
                     var pageid=getQueryVariable("page");
-                    tcate=$('#article-categories').val();
+                    var turl=$('#url').val();
 
-                    if(ttitle.length>50||ttitle.length==0)
+                    if(tname.length>20||tname.length==0)
                     {
-                        alert("标题长度不合法");
+                        alert("名称长度不合法");
                         return;
                     }
-                    if(tcontent.length>10000)
+                    if(turl.length>128||turl.length==0)
                     {
-                        alert("文章过长");
+                        alert("URL长度不合法");
                         return;
                     }
-                    if(tcate.length>10)
+                    if(tdescription.length>200)
                     {
-                        alert("标签过长");
+                        alert("描述过长");
                         return;
                     }
-
-
-
                     $.post(
-                        "../article/edit.action",
+                        "../link/delete.action",
                         {
-                            artId:pageid,
-                            status:0,
-                            title: $('#article-title').val(),
-                            categories: $('#article-categories').val(),
-                            content: ue.getContent()
-                        },
-                        function (data)
-                        {
-                            //var a=data.equals('success')
-                            if(data=="success")
-                            {
-                                alert("保存成功");
-                                window.location.href="/blog/pages/manageArticle.html";
-                            }
-
-
-                            else{
-                                alert("保存失败！格式不合法");
-                            }
+                            id:pageid
                         }
                     );
 
-                }
-
-                function addArticle()
-                {
-
-                    ttitle=$('#article-title').val();
-
-                    tcontent=ue.getContent();
-                    var pageid=getQueryVariable("page");
-                    tcate=$('#article-categories').val();
-
-                    if(ttitle.length>50||ttitle.length==0)
-                    {
-                        alert("标题长度不合法");
-                        return;
-                    }
-                    if(tcontent.length>10000)
-                    {
-                        alert("文章过长");
-                        return;
-                    }
-                    if(tcate.length>10)
-                    {
-                        alert("标签过长");
-                        return;
-                    }
-
 
 
                     $.post(
-                        "../article/edit.action",
+                        "../link/add.action",
                         {
-                            artId:pageid,
-                            status:1,
-                            title: $('#article-title').val(),
-                            categories: $('#article-categories').val(),
-                            content: ue.getContent()
+                            name: tname,
+                            description: tdescription,
+                            url: turl
                         },
                         function (data)
                         {
@@ -302,7 +255,7 @@
                             if(data=="success")
                             {
                                 alert("保存成功");
-                                window.location.href="/blog/pages/manageArticle.html";
+                                window.location.href="/blog/pages/manageLink.html";
                             }
 
 
@@ -367,35 +320,69 @@
         }
         return(false);
     }
+    function logout() {
 
+        $.get(
+            "../logout",
+            function (data) {
+                var tdata=data;
+
+                if("success"==tdata)
+                {
+                    window.location.href="login.html";
+                }
+                else{
+                    alert("注销失败");
+                }
+
+            }
+        )
+
+    }
     window.onready = function getValue() {
-        $.get("../article/all.action",
+        $.get("../article/test.action",
+            function (data) {
+                if(data=="fall")
+                {
+                    window.location.href="login.html";
+                    return;
+                }
+
+
+            }
+        )
+        $.get("../link/all.action",
             function (data) {
 
                 //var content='';
-                var temptitle='';
-                var tempcate='';
+                var tempid='';
+                var tempname='';
+                var tempurl;
+                var tempdescription;
                 $.each(data, function (index, data) {
                         //alert(getQueryVariable("page"));
                         var pageid=getQueryVariable("page");
                         //alert(pageid);
                         // var pageid=request.QueryString("page");
-                        if((""+data.artId)==pageid)
+                        if((""+data.id)==pageid)
                         {
-                            tempcontent+=data.content;
-                            temptitle=data.title;
-                            tempcate=data.categories;
+                            tempid=data.id;
+                            tempname=data.name;
+                            tempdescription=data.description;
+                            tempurl=data.url;
                             return false;
                         }
 
                     }
+
                 )
                 //result += "</tbody></table>";
 
                // $('#msg').html(content);
                 //$('#mtitle').html(temptitle);
-                document.getElementById("article-categories").value=tempcate;
-                document.getElementById("article-title").value=temptitle;
+                document.getElementById("name").value=tempname;
+                document.getElementById("url").value=tempurl;
+                document.getElementById("description").value=tempdescription;
             },
             "json");//这里返回的类型有：json,html,xml,text
     }

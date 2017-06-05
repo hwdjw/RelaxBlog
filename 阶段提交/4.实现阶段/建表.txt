@@ -1,0 +1,9 @@
+create table links(
+id INTEGER AUTO_INCREMENT NOT NULL,
+
+	url varchar(200),
+	name varchar(100),
+	description varchar(300),
+	primary key(id)
+);
+insert into links(url,name,description) values('www.baidu.com','baidu','baidudescription');

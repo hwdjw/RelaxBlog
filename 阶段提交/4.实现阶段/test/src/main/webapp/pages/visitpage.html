@@ -2,7 +2,7 @@
 
 <html><head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><script src="./visitpage_files/saved_resource" charset="utf-8" id="uyan_script"></script>
-    
+
     <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
     <meta name="renderer" content="webkit">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
@@ -18,13 +18,13 @@
     <script src="./visitpage_files/jquery.min.js"></script>
     <script type="text/javascript" src="./visitpage_files/laypage.js"></script>
     <script>
-        var basepath = '/taleblog';
+        var basepath = '/blog';
     </script>
 
 
-<style>
-    .text-overflow{overflow: hidden;text-overflow: ellipsis;white-space: nowrap}
-</style><style>#instantclick{position:fixed;top:0;left:0;width:100%;pointer-events:none;z-index:2147483647;transition:opacity .25s .1s}.instantclick-bar{background:#29d;width:100%;margin-left:-100%;height:2px;transition:all .25s}</style><link type="text/css" rel="stylesheet" href="./visitpage_files/laypage.css" id="laypagecss"><style>#instantclick{position:fixed;top:0;left:0;width:100%;pointer-events:none;z-index:2147483647;transition:opacity .25s .1s}.instantclick-bar{background:#29d;width:100%;margin-left:-100%;height:2px;transition:all .25s}</style><style>#instantclick{position:fixed;top:0;left:0;width:100%;pointer-events:none;z-index:2147483647;transition:opacity .25s .1s}.instantclick-bar{background:#29d;width:100%;margin-left:-100%;height:2px;transition:all .25s}</style><style>#instantclick{position:fixed;top:0;left:0;width:100%;pointer-events:none;z-index:2147483647;transition:opacity .25s .1s}.instantclick-bar{background:#29d;width:100%;margin-left:-100%;height:2px;transition:all .25s}</style>
+    <style>
+        .text-overflow{overflow: hidden;text-overflow: ellipsis;white-space: nowrap}
+    </style><style>#instantclick{position:fixed;top:0;left:0;width:100%;pointer-events:none;z-index:2147483647;transition:opacity .25s .1s}.instantclick-bar{background:#29d;width:100%;margin-left:-100%;height:2px;transition:all .25s}</style><link type="text/css" rel="stylesheet" href="./visitpage_files/laypage.css" id="laypagecss"><style>#instantclick{position:fixed;top:0;left:0;width:100%;pointer-events:none;z-index:2147483647;transition:opacity .25s .1s}.instantclick-bar{background:#29d;width:100%;margin-left:-100%;height:2px;transition:all .25s}</style><style>#instantclick{position:fixed;top:0;left:0;width:100%;pointer-events:none;z-index:2147483647;transition:opacity .25s .1s}.instantclick-bar{background:#29d;width:100%;margin-left:-100%;height:2px;transition:all .25s}</style><style>#instantclick{position:fixed;top:0;left:0;width:100%;pointer-events:none;z-index:2147483647;transition:opacity .25s .1s}.instantclick-bar{background:#29d;width:100%;margin-left:-100%;height:2px;transition:all .25s}</style>
 
     <script language="javascript">
         window.onload = function getValue() {
@@ -41,7 +41,7 @@
                             {
                                 result += '<div class=\"post-list-item\">'+
                                     '<div class=\"post-list-item-container\">'+
-                                    '<div class=\"item-thumb bg-deepgrey\" style=\"background-image:url(图片地址);\"><img src=\"./visitpage_files/'+data.artId%20+'.jpg '+'\" '+ 'onclick=\"turnto(data.artId)\"'+' /></div>'+
+                                    '<div class=\"item-thumb bg-deepgrey\" style=\"background-image:url(visitpage_files/'+data.artId%20+'.jpg'+ ');\"'+ ' onclick=\"turnto(data.artId)\">'+' </div>'+
                                     '<a  href=\"'+'readArticle2.html?page='+data.artId+'\"'+' onclick=\"turnto(data.artId)\"'+'>'+
                                     '<div class=\"item-desc\">'+
                                     '<p class=\"text-overflow\" style=\"width:200px;\">'+ data.content + '</p>'+
@@ -53,12 +53,12 @@
                                     'readArticle2.html?page='+
                                     data.artId+'\">'+
                                     data.title +'</div>'+
-                                    '<div class="item-meta clearfix">'+
-                                    '<div class=\"item-meta-ico bg-ico-lock\" style=\"background: url(图片) no-repeat;background-size: 40px auto;\"><img src="./visitpage_files/tag.jpg"  /></div>'+
-                                    '<div class="item-meta-cat"><a>'+'tag:'+data.categories+'</a></div>'+
+                                    '<div class=\"item-meta clearfix\">'+
+                                    '<div class=\"item-meta-ico bg-ico-lock\" style=\"background: url(visitpage_files/tag.jpg); no-repeat;background-size: 40px auto;\"></div>'+
+                                    '<div class=\"item-meta-cat\"><a>'+'tag:'+data.categories+'</a></div>'+
                                     '</div> </div> </div> </div>'
                             }
-                    }
+                        }
 
 
 
@@ -81,7 +81,7 @@
         </a>
         <div class="navbar-menu">
             <a onclick="manage()">管理</a>
-            <a href="友情链接">友链</a>
+            <a onclick="visitlink()">友链</a>
             <a href="关于">关于</a>
         </div>
         <div class="navbar-search" onclick="">
@@ -173,6 +173,11 @@
         window.location.href="manageArticle.html"
 
     }
+    function visitlink() {
+
+        window.location.href="visitLink.html"
+
+    }
 
 </script>
 <div>
@@ -235,8 +240,8 @@
 
                 $.each(re_articles,function (i,v) {
                     $("#recentdiv").empty();
-                   var li = "<li><a href='"+basepath+"/pages/article/"+v.id+"'>"+v.title+"</a></li>";
-                   $("#recentdiv").append(li);
+                    var li = "<li><a href='"+basepath+"/pages/article/"+v.id+"'>"+v.title+"</a></li>";
+                    $("#recentdiv").append(li);
                 });
 
             });
@@ -258,7 +263,7 @@
             if (key == 13) {
                 var q = $(this).val();
                 if (q && q != '') {
-                    window.location.href = basepath+'/pages/search/' + q;
+                    window.location.href = basepath+'/pages/search.html?'+"s="+q ;
                 }
             }
         });

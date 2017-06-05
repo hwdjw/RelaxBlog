@@ -41,7 +41,7 @@
         <!--logo end-->
         <div class="top-menu">
             <ul class="nav pull-right top-menu">
-                <li><a class="logout" href="login.html">Logout</a></li>
+                <li><button class="logout" type="button" onclick="logout()">Logout</button></li>
             </ul>
         </div>
     </header>
@@ -265,7 +265,38 @@
 
 <!-- js placed at the end of the document so the pages load faster -->
 <script>
+    function logout() {
+
+        $.get(
+            "../logout",
+            function (data) {
+                var tdata=data;
+
+                if("success"==tdata)
+                {
+                    window.location.href="login.html";
+                }
+                else{
+                    alert("注销失败");
+                }
+
+            }
+        )
+
+    }
     window.onready = function getValue() {
+        $.get("../article/test.action",
+            function (data) {
+            if(data=="fall")
+            {
+                window.location.href="login.html";
+                return;
+            }
+
+
+                    }
+                )
+
         $.get("../article/all.action",
             function (data) {
                 var artCount=0;
