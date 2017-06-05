@@ -48,7 +48,7 @@
         <!--logo end-->
         <div class="top-menu">
             <ul class="nav pull-right top-menu">
-                <li><a class="logout" href="login.html">Logout</a></li>
+                <li><button class="logout" type="button" onclick="logout()">Logout</button></li>
             </ul>
         </div>
     </header>
@@ -107,12 +107,11 @@
                 <li class="sub-menu">
                     <a href="javascript:;">
                         <i class="fa fa-cogs"></i>
-                        <span>Third</span>
+                        <span>manageLinks</span>
                     </a>
                     <ul class="sub">
-                        <li><a href="calendar.html">A</a></li>
-                        <li><a href="gallery.html">B</a></li>
-                        <li><a href="todo_list.html">C</a></li>
+                        <li><a href="addLink.html">addLink</a></li>
+                        <li><a href="manageLink.html">manageLink</a></li>
                     </ul>
                 </li>
                 <li class="sub-menu">
@@ -370,7 +369,37 @@
         return(false);
     }
 
+    function logout() {
+
+        $.get(
+            "../logout",
+            function (data) {
+                var tdata=data;
+
+                if("success"==tdata)
+                {
+                    window.location.href="login.html";
+                }
+                else{
+                    alert("注销失败");
+                }
+
+            }
+        )
+
+    }
     window.onready = function getValue() {
+        $.get("../article/test.action",
+            function (data) {
+                if(data=="fall")
+                {
+                    window.location.href="login.html";
+                    return;
+                }
+
+
+            }
+        )
         $.get("../article/all.action",
             function (data) {
 

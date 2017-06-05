@@ -14,6 +14,15 @@
         </webroots>
       </configuration>
     </facet>
+    <facet type="hibernate" name="Hibernate">
+      <configuration>
+        <datasource-map>
+          <unit-entry name="a.xml" value="8486d724-dc2c-4a9b-8e2f-b49299d1b9c4" />
+          <unit-entry name="sessionFactory" value="dataSource" />
+        </datasource-map>
+        <naming-strategy-map />
+      </configuration>
+    </facet>
   </component>
   <component name="NewModuleRootManager" LANGUAGE_LEVEL="JDK_1_5">
     <output url="file://$MODULE_DIR$/target/classes" />

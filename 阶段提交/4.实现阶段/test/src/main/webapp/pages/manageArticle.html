@@ -26,7 +26,40 @@
 
 
     <script language="javascript">
+        function logout() {
+
+            $.get(
+                "../logout",
+                function (data) {
+                    var tdata=data;
+
+                    if("success"==tdata)
+                    {
+                        window.location.href="login.html";
+                    }
+                    else{
+                        alert("注销失败");
+                    }
+
+                }
+            )
+
+        }
+
+
         window.onload = function getValue() {
+            $.get("../article/test.action",
+                function (data) {
+                    if(data=="fall")
+                    {
+                        window.location.href="login.html";
+                        return;
+                    }
+
+
+                }
+            )
+
             $.get("../article/all.action",
                 function (data) {
                     var result = "<table class=\"table table-bordered\" id=\"articleTable\">";
@@ -49,7 +82,7 @@
                                 "<td>" + status + "</td>" +
                                //commentnum
                                 "<td>" +
-                                "<a href=\"javascript:void(0)\" onclick='editArticle(this)'\" class=\"btn btn-primary btn-sm waves-effect waves-light m-b-5\">" +
+                                "<a href=\"javascript:void(0)\" onclick='editArticle()'\" class=\"btn btn-primary btn-sm waves-effect waves-light m-b-5\">" +
                                 "<i class=\"fa fa-edit\"></i> <span>编辑</span></a> " +
                                 "<a href=\"javascript:void(0) \" onclick=\"deleteArticle(this)\" class=\"btn btn-danger btn-sm waves-effect waves-light m-b-5\">" +
                                 "<i class=\"fa fa-trash-o\"></i> <span>删除</span></a> " +
@@ -83,7 +116,7 @@
         <!--logo end-->
         <div class="top-menu">
             <ul class="nav pull-right top-menu">
-                <li><a class="logout" href="login.html">Logout</a></li>
+                <li><button class="logout" type="button" onclick="logout()">Logout</button></li>
             </ul>
         </div>
     </header>
@@ -142,12 +175,11 @@
                 <li class="sub-menu">
                     <a href="javascript:;">
                         <i class="fa fa-cogs"></i>
-                        <span>Third</span>
+                        <span>manageLinks</span>
                     </a>
                     <ul class="sub">
-                        <li><a href="calendar.html">A</a></li>
-                        <li><a href="gallery.html">B</a></li>
-                        <li><a href="todo_list.html">C</a></li>
+                        <li><a href="addLink.html">addLink</a></li>
+                        <li><a href="manageLink.html">manageLink</a></li>
                     </ul>
                 </li>
                 <li class="sub-menu">

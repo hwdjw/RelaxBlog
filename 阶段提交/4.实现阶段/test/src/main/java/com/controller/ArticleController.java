@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 
 
+import javax.servlet.http.HttpSession;
 import java.util.Date;
 
 import java.util.HashMap;
@@ -72,6 +73,17 @@ public class ArticleController {
         }
         else return "false";
 
+
+    }
+    @RequestMapping("/test")
+
+    @ResponseBody
+
+    public String testjson(HttpSession session) {
+        if(session.getAttribute("username")==null){
+            return "fall";
+        }
+        else return "success";
 
     }
 
