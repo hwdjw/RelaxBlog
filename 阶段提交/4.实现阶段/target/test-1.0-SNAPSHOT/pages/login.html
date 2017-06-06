@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Login</title>
+
+    <link href="../assets/css/login.css" rel="stylesheet">
+    <script type="text/javascript">
+        function onSubmit(e) {
+            if (e.keyCode == 13 || e.which == 13) {
+                document.getElementById("loginbtn").click();
+            }
+        }
+    </script>
+</head>
+<body>
+<div id="login">
+    <h1>Login</h1>
+    <form>
+        <input type="text"  placeholder="用户名" id="username" required></input>
+        <input type="password"  placeholder="密码" id="password" required></input>
+        <input id ="loginbtn"class="but" type="button" onclick="login()" value="登录"></input>
+        <br>
+        <input class="but" type="button" onclick="redirect('visitpage.html')" value="直接访问"></input>
+    </form>
+</div>
+</body>
+</html>
+
+<script language="javascript">
+    function login() {
+        var tusername= $('#username').val();
+        var tpassword= $('#password').val();
+        if(tusername.length==0)
+        {
+            alert("用户名不能为空");
+            return;
+        }
+        else if(tusername.length>15)
+        {
+            alert("用户名过长");
+            return;
+        }
+        if (tpassword.length==0)
+        {
+            alert("密码不能为空");
+            return
+        }
+        else if(tpassword.length>15)
+        {
+            alert("密码过长");
+            return;
+        }
+        $.post(
+            "../login",
+            {
+                username: $('#username').val(),
+                password: $('#password').val(),
+
+            },
+            function (data) {
+                if(data == "success")
+                {
+                    redirect("index.html")
+                }
+                else{
+                    alert("登录失败");
+                }
+
+            }
+        )
+
+    }
+</script>
+<script>
+    function redirect(url) {
+
+        window.location.href=url;
+
+    }
+</script>
+<script src="../assets/js/jquery.js"></script>
+
+</body>
+</html>

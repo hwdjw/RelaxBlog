@@ -1,0 +1,24 @@
+{
+  "name": "echo-chamber-js",
+  "version": "1.0.0",
+  "description": "",
+  "main": "bundle.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/tessalt/echo-chamber-js.git"
+  },
+  "author": "Tessa Thornton",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/tessalt/echo-chamber-js/issues"
+  },
+  "homepage": "https://github.com/tessalt/echo-chamber-js",
+  "devDependencies": {
+    "browserify": "^10.2.6",
+    "uglify": "^0.1.5",
+    "watchify": "^3.2.3"
+  }
+}
