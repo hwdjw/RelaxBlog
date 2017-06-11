@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Login</title>
+
+    <link href="../assets/css/login.css" rel="stylesheet">
+</head>
+<body>
+<div id="login">
+    <h1>Login</h1>
+    <form>
+        <input type="text"  placeholder="用户名" id="username" required></input>
+        <input type="password"  placeholder="密码" id="password" required></input>
+        <button id ="loginbtn"class="but" type="button" onclick="login()" >登录</button>
+        <br>
+        <button class="but" type="button" onclick="redirect('visitpage.html')">直接访问</button>
+    </form>
+</div>
+</body>
+</html>
+
+<script language="javascript">
+    function login() {
+        var tusername= $('#username').val();
+        var tpassword= $('#password').val();
+        if(tusername.length==0)
+        {
+            alert("用户名不能为空");
+            return;
+        }
+        else if(tusername.length>15)
+        {
+            alert("用户名过长");
+            return;
+        }
+        if (tpassword.length==0)
+        {
+            alert("密码不能为空");
+            return
+        }
+        else if(tpassword.length>15)
+        {
+            alert("密码过长");
+            return;
+        }
+        $.post(
+            "../login",
+            {
+                username: $('#username').val(),
+                password: $('#password').val(),
+
+            },
+            function (data) {
+                if(data == "success")
+                {
+                    redirect("index.html")
+                }
+                else{
+                    alert("登录失败");
+                }
+
+            }
+        )
+
+    }
+</script>
+<script>
+    function redirect(url) {
+
+        window.location.href=url;
+
+    }
+</script>
+<script src="../assets/js/jquery.js"></script>
+
+</body>
+</html>
