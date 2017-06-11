@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="Dashboard">
+    <meta name="keyword" content="Dashboard, Bootstrap, Admin, Template, Theme, Responsive, Fluid, Retina">
+
+    <title>DASHGUM - Bootstrap Admin Template</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="../assets/css/bootstrap.css" rel="stylesheet">
+    <!--external css-->
+    <link href="../assets/font-awesome/css/font-awesome.css" rel="stylesheet"/>
+
+    <!-- Custom styles for this template -->
+    <link href="../assets/css/style.css" rel="stylesheet">
+    <link href="../assets/css/style-responsive.css" rel="stylesheet">
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+
+    <!-- 配置文件 -->
+    <script type="text/javascript" src="../ueditor/ueditor.config.js"></script>
+    <!-- 编辑器源码文件 -->
+    <script type="text/javascript" src="../ueditor/ueditor.all.js"></script>
+
+</head>
+
+<body>
+
+<section id="container">
+    <!-- **********************************************************************************************************************************************************
+    TOP BAR CONTENT & NOTIFICATIONS
+    *********************************************************************************************************************************************************** -->
+    <!--header start-->
+    <header class="header black-bg">
+        <div class="sidebar-toggle-box">
+            <div class="fa fa-bars tooltips" data-placement="right" data-original-title="Toggle Navigation"></div>
+        </div>
+        <!--logo start-->
+        <a href="index.html" class="logo"><b>Relax Blog</b></a>
+        <!--logo end-->
+        <div class="top-menu">
+            <ul class="nav pull-right top-menu">
+                <li><button class="logout" type="button" onclick="logout()">Logout</button></li>
+            </ul>
+        </div>
+    </header>
+    <!--header end-->
+
+    <!-- **********************************************************************************************************************************************************
+    MAIN SIDEBAR MENU
+    *********************************************************************************************************************************************************** -->
+    <!--sidebar start-->
+    <aside>
+        <div id="sidebar" class="nav-collapse ">
+            <!-- sidebar menu start-->
+            <ul class="sidebar-menu" id="nav-accordion">
+
+                <p class="centered"><a href="#"><img src="../assets/img/ui-04.jpg" class="img-circle" width="60"></a>
+                </p>
+                <h5 class="centered">HWing</h5>
+
+                <li class="mt">
+                    <a href="index.html">
+                        <i class="fa fa-dashboard"></i>
+                        <span>DashBoard</span>
+                    </a>
+                </li>
+
+                <li class="sub-menu">
+                    <a href="javascript:">
+                        <i class="fa fa-tasks"></i>
+                        <span>addArticle</span>
+                    </a>
+                    <ul class="sub">
+                        <li><a href="addArticle.html">addArticle</a></li>
+                    </ul>
+                </li>
+                <li class="sub-menu">
+                    <a href="javascript:">
+                        <i class="fa fa-tasks"></i>
+                        <span>manageArticle</span>
+                    </a>
+                    <ul class="sub">
+                        <li><a href="manageArticle.html">manageArticle</a></li>
+                    </ul>
+                </li>
+
+
+                <li class="sub-menu">
+                    <a href="javascript:">
+                        <i class="fa fa-desktop"></i>
+                        <span>VisitPage</span>
+                    </a>
+                    <ul class="sub">
+                        <li><a href="visitpage.html">VisitPage</a></li>
+                    </ul>
+                </li>
+
+                <li class="sub-menu">
+                    <a class="active"href="javascript:;">
+                        <i class="fa fa-cogs"></i>
+                        <span>manageLinks</span>
+                    </a>
+                    <ul class="sub">
+                        <li><a href="addLink.html">addLink</a></li>
+                        <li><a href="manageLink.html">manageLink</a></li>
+                    </ul>
+                </li>
+                <li class="sub-menu">
+                    <a href="javascript:">
+                        <i class="fa fa-book"></i>
+                        <span>crawlArticles</span>
+                    </a>
+                    <ul class="sub">
+                        <li><a href="crawlArticle.html">crawlArticle</a></li>
+                    </ul>
+                </li>
+                <li class="sub-menu">
+                    <a href="javascript:">
+                        <i class="fa fa-book"></i>
+                        <span>dailyRecommended</span>
+                    </a>
+                    <ul class="sub">
+                        <li><a href="dailyRecommended.html">dailyRecommended</a></li>
+                    </ul>
+                </li>
+            </ul>
+            <!-- sidebar menu end-->
+        </div>
+    </aside>
+    <!--sidebar end-->
+
+    <!-- **********************************************************************************************************************************************************
+    MAIN CONTENT
+    *********************************************************************************************************************************************************** -->
+    <!--main content start-->
+    <section id="main-content">
+
+        <section class="wrapper">
+            <p style="font-family:Arial ;font-size: 40px" id="mtitle">RELAX BLOG</p>
+
+            <form>
+                <div class="form-group">
+                    <label for="description" class="col-sm-1 control-label">description</label>
+                    <div class="col-sm-11">
+                        <input type="text" class="form-control" id="description" placeholder="description" name="description">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="name" class="col-sm-1 control-label">Name</label>
+                    <div class="col-sm-11">
+                        <input type="text" class="form-control" id="name" placeholder="name"
+                               name="name">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="url" class="col-sm-1 control-label">URL</label>
+                    <div class="col-sm-11" >
+                        <input type="text" class="form-control" id="url" placeholder="url"
+                               name="url">
+
+                    </div>
+                </div>
+                <br>
+                <button type="button" onclick="addLink()">保存</button>
+
+
+            </form>
+            <script language="javascript">
+/*
+                $(document).ready(function(){
+                    var conten=document.getElementById("ueditor");
+                    conten
+                    $("#ueditor").click(function(){
+                        $("#ueditor").html("");
+                    });
+                });
+*/
+
+
+                function addLink()
+                {
+
+                    var tdescription=$('#description').val();
+
+                    var tname=$('#name').val();
+                    var pageid=getQueryVariable("page");
+                    var turl=$('#url').val();
+
+                    if(tname.length>20||tname.length==0)
+                    {
+                        alert("名称长度不合法");
+                        return;
+                    }
+                    if(turl.length>128||turl.length==0)
+                    {
+                        alert("URL长度不合法");
+                        return;
+                    }
+                    if(tdescription.length>200)
+                    {
+                        alert("描述过长");
+                        return;
+                    }
+                    $.post(
+                        "../link/delete.action",
+                        {
+                            id:pageid
+                        }
+                    );
+
+
+
+                    $.post(
+                        "../link/add.action",
+                        {
+                            name: tname,
+                            description: tdescription,
+                            url: turl
+                        },
+                        function (data)
+                        {
+                            //var a=data.equals('success')
+                            if(data=="success")
+                            {
+                                alert("保存成功");
+                                window.location.href="/blog/pages/manageLink.html";
+                            }
+
+
+                            else{
+                                alert("保存失败！格式不合法");
+                            }
+                        }
+                    );
+
+                };
+            </script>
+        </section>
+
+    </section>
+    <!-- /MAIN CONTENT -->
+
+    <!--main content end-->
+    <!--footer start-->
+    <footer class="site-footer">
+        <div class="text-center">
+            2017 - Relax Blog
+            <a href="index.html#" class="go-top">
+                <i class="fa fa-angle-up"></i>
+            </a>
+        </div>
+    </footer>
+    <!--footer end-->
+</section>
+
+<!-- js placed at the end of the document so the pages load faster -->
+<script src="../assets/js/jquery.js"></script>
+<script src="../assets/js/bootstrap.min.js"></script>
+<script src="../assets/js/jquery-ui-1.9.2.custom.min.js"></script>
+<script src="../assets/js/jquery.ui.touch-punch.min.js"></script>
+<script class="include" type="text/javascript" src="../assets/js/jquery.dcjqaccordion.2.7.js"></script>
+<script src="../assets/js/jquery.scrollTo.min.js"></script>
+<script src="../assets/js/jquery.nicescroll.js" type="text/javascript"></script>
+
+
+<!--common script for all pages-->
+<script src="../assets/js/common-scripts.js"></script>
+
+<!--script for this page-->
+
+<!--<script>-->
+<!--//custom select box-->
+
+<!--$(function () {-->
+<!--$('select.styled').customSelect();-->
+<!--});-->
+
+<!--</script>-->
+<script type="text/javascript">
+    var tempcontent='';
+    function getQueryVariable(variable)
+    {
+        var query = window.location.search.substring(1);
+        var vars = query.split("&");
+        for (var i=0;i<vars.length;i++) {
+            var pair = vars[i].split("=");
+            if(pair[0] == variable){return pair[1];}
+        }
+        return(false);
+    }
+    function logout() {
+
+        $.get(
+            "../logout",
+            function (data) {
+                var tdata=data;
+
+                if("success"==tdata)
+                {
+                    window.location.href="login.html";
+                }
+                else{
+                    alert("注销失败");
+                }
+
+            }
+        )
+
+    }
+    window.onready = function getValue() {
+        $.get("../article/test.action",
+            function (data) {
+                if(data=="fall")
+                {
+                    window.location.href="login.html";
+                    return;
+                }
+
+
+            }
+        )
+        $.get("../link/all.action",
+            function (data) {
+
+                //var content='';
+                var tempid='';
+                var tempname='';
+                var tempurl;
+                var tempdescription;
+                $.each(data, function (index, data) {
+                        //alert(getQueryVariable("page"));
+                        var pageid=getQueryVariable("page");
+                        //alert(pageid);
+                        // var pageid=request.QueryString("page");
+                        if((""+data.id)==pageid)
+                        {
+                            tempid=data.id;
+                            tempname=data.name;
+                            tempdescription=data.description;
+                            tempurl=data.url;
+                            return false;
+                        }
+
+                    }
+
+                )
+                //result += "</tbody></table>";
+
+               // $('#msg').html(content);
+                //$('#mtitle').html(temptitle);
+                document.getElementById("name").value=tempname;
+                document.getElementById("url").value=tempurl;
+                document.getElementById("description").value=tempdescription;
+            },
+            "json");//这里返回的类型有：json,html,xml,text
+    }
+   //var ue = UE.getEditor('ueditor');
+
+
+
+
+</script>
+
+</body>
+</html>
