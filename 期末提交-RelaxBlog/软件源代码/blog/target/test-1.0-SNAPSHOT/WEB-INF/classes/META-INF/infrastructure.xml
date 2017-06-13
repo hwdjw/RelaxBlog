@@ -19,7 +19,7 @@
         <property name="driverClass" value="${driverClassName}"></property>
         <property name="jdbcUrl" value="${url}"></property>
         <property name="user" value="${username}"></property>
-        <property name="password" value="123456"></property>
+        <property name="password" value="djw6381906"></property>
         <property name="maxPoolSize" value="40"></property>
         <property name="minPoolSize" value="1"></property>
         <property name="initialPoolSize" value="1"></property>
