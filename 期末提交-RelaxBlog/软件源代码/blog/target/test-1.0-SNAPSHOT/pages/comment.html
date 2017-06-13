@@ -1,0 +1,90 @@
+﻿<!DOCTYPE html> <html> 
+
+<head>
+
+<link href="./comment-file/css/xcode.min.css" rel="stylesheet">
+<link href="./comment-file/css/style.min.css" rel="stylesheet">
+<title> test </title>
+</head>
+
+<body>
+<script>
+
+var obj = '{"name":"wisdo", "age":"20"}';
+var data=eval("(" + obj +")" );
+var data2=request.QueryString("page");
+document.write(data2);
+
+document.write(data.name);
+
+</script>
+
+<script id="echochamber">https://s3.amazonaws.com/echochamberjs/dist
+    var EchoChamber = window.EchoChamber || {};
+    (function() {
+      EchoChamber.discussionURL = window.location;
+      var script = document.createElement('script');
+     
+      script.src = './comment-file/bundle.js';
+      script.async = true;
+      var entry = document.getElementById('echochamber');
+      entry.parentNode.insertBefore(script, entry);
+    })();
+  </script>
+
+
+ 
+<script src="./comment-file/jquery.js"></script> 
+<script> 
+$(document).ready(function () { 
+/* 
+* 判断是否支持localstorage 
+*/ 
+if (localStorage) { 
+/* 
+* 读出localstorage中的值 
+*/ 
+if (localStorage.type) { 
+$("#type").find("option[value=" + localStorage.type + "]").attr("selected", true); 
+} 
+if (localStorage.name) { 
+$("#name").val(localStorage.name); 
+} 
+if (localStorage.email) { 
+$("#email").val(localStorage.email); 
+} 
+if (localStorage.message) { 
+$("#message").val(localStorage.message); 
+} 
+if (localStorage.subscribe === "checked") { 
+$("#subscribe").attr("checked", "checked"); 
+} 
+/* 
+* 当表单中的值改变时,localstorage的值也改变 
+*/ 
+$("input[type=text],select,textarea").change(function(){ 
+$this = $(this); 
+localStorage[$this.attr("name")] = $this.val(); 
+}); 
+$("input[type=checkbox]").change(function(){ 
+$this = $(this); 
+localStorage[$this.attr("name")] = $this.attr("checked"); 
+}); 
+$("form") 
+/* 
+* 如果表单提交，则调用clear方法 
+*/ 
+.submit(function(){ 
+localStorage.clear(); 
+}) 
+.change(function(){ 
+console.log(localStorage); 
+}); 
+} 
+}); 
+</script> 
+
+</body>
+
+
+</html>
